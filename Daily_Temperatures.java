@@ -9,21 +9,20 @@ public class Daily_Temperatures {
     }
 
     public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Integer> stack = new Stack<>();
-        int nums[] = new int[temperatures.length];
-
-        for (int i = temperatures.length - 1; i >= 0; i--){
-
-            while (!stack.isEmpty() && temperatures[i] >= temperatures[stack.peek()]){
-                stack.pop();
+        int n = temperatures.length;
+        int[] res = new int[n];
+        int max = Integer.MIN_VALUE;
+        for(int i=n-1;i>=0;i--) {
+            if(temperatures[i]>=max) {
+                max = temperatures[i];
+            } else {
+                int last = i+1;
+                while(temperatures[i]>=temperatures[last]) {
+                    last += res[last];
+                }
+                res[i] = last-i;
             }
-
-            if (!stack.isEmpty()){
-                nums[i] = stack.peek() - i;
-            }
-
-            stack.push(i);
         }
-        return nums;
+        return res;
     }
 }
