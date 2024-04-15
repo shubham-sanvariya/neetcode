@@ -16,7 +16,6 @@ public class Linked_List_Cycle {
         while (slowpointer != null && fastpointer != null && fastpointer.next != null){
             slowpointer = slowpointer.next;
             fastpointer = fastpointer.next.next;
-
             if (slowpointer == fastpointer) return true;
         }
         return false;
