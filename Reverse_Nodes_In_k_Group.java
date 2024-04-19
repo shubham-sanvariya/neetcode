@@ -5,6 +5,9 @@ public class Reverse_Nodes_In_k_Group {
         listNode.next.next = new ListNode(3);
         listNode.next.next.next = new ListNode(4);
         listNode.next.next.next.next = new ListNode(5);
+
+        Reverse_Nodes_In_k_Group reverseNodesInKGroup = new Reverse_Nodes_In_k_Group();
+        reverseNodesInKGroup.reverseKGroup(listNode,2);
     }
 
     public ListNode reverseKGroup(ListNode head, int k) {
