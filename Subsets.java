@@ -11,6 +11,7 @@ public class Subsets {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         dfs(nums, 0, new ArrayList<>(), ans);
+        System.out.println(ans);
         return ans;
     }
 
