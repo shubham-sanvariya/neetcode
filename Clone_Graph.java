@@ -1,9 +1,25 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Clone_Graph {
+
+    public static void main(String[] args) {
+        Clone_Graph cloneGraph = new Clone_Graph();
+        Node node1 = cloneGraph.new Node(1);
+        Node node2 = cloneGraph.new Node(2);
+        Node node3 = cloneGraph.new Node(3);
+        Node node4 = cloneGraph.new Node(4);
+
+        node1.neighbors.add(node2);
+        node1.neighbors.add(node4);
+        node2.neighbors.add(node1);
+        node2.neighbors.add(node3);
+        node3.neighbors.add(node2);
+        node3.neighbors.add(node4);
+        node4.neighbors.add(node1);
+        node4.neighbors.add(node3);
+
+        cloneGraph.cloneGraph(node1);
+    }
 
     private Map<Node, Node> visited = new HashMap<>();
 
@@ -22,11 +38,11 @@ public class Clone_Graph {
         for (Node neighbor : node.neighbors) {
             cloneNode.neighbors.add(cloneGraph(neighbor));
         }
-
+        System.out.println(cloneNode.val);
         return cloneNode;
     }
 
-    static class Node {
+     class Node {
         public int val;
         public List<Node> neighbors;
         public Node() {
