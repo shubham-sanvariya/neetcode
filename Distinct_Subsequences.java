@@ -5,6 +5,7 @@ public class Distinct_Subsequences {
     }
 
     public static int numDistinct(String source, String target) {
+
         int[] sums = new int[target.length() + 1]; // 1 indexed
         sums[0] = 1;
         int maxIndex = 0;
